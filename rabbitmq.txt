@@ -1,0 +1,34 @@
+-Install Erland
+otp_win64_25.3.2.13
+
+-add environment variable
+ERLANG_HOME:C:\Program Files\Erlang OTP
+path:%ERLANG_HOME%\bin
+
+-run the cmd prompt
+erl
+
+-Install RabbitMQ
+rabbitmq-server-3.12.1
+
+
+-Reinstall RabbitMQ Service Manually
+Open **Command Prompt** as Administrator and navigate to the RabbitMQ `sbin` directory:
+
+C:\Program Files\RabbitMQ Server\rabbitmq_server-3.12.1\sbin>rabbitmq-service.bat remove
+C:\Program Files\RabbitMQ Server\rabbitmq_server-3.12.1\sbin>rabbitmq-service.bat install
+C:\Program Files\RabbitMQ Server\rabbitmq_server-3.12.1\sbin>rabbitmq-service.bat start
+
+
+-Enable the Management Plugin
+Run the following command to enable the management plugin:
+rabbitmq-plugins.bat enable rabbitmq_management
+
+To confirm that the plugin is enabled, you can run:
+rabbitmq-plugins.bat list
+This will list all plugins.
+The `rabbitmq_management` plugin should be marked as `[E]`, indicating it is enabled.
+
+After enabling the plugin, restart the RabbitMQ service to apply the changes
+
+-http://localhost:15672/
